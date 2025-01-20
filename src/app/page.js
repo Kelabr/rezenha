@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Start from "./components/Start";
 
 export default function Home() {
   return (
@@ -22,8 +23,8 @@ export default function Home() {
             </div>
           </div>
       </div>
-      <div className="h-[575px]  w-full  bg-white bottom-0 absolute rounded-t-2xl ">
-
+      <div className="h-[575px] ite flex flex-col  w-full  bg-white bottom-0 absolute rounded-t-2xl px-5 ">
+        <Start/>
       </div>
    </main>
 
