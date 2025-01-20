@@ -3,23 +3,27 @@ import Image from "next/image";
 export default function Home() {
   return (
    <>
-   <main className="h-screen">
-    <div className="h-2/6  bg-slate-500 p-3 flex justify-center ">
+   <main className="h-screen w-full">
+    <div className="h-2/6  bg-colorprimary w-full p-3 flex justify-center ">
         <div className=" h-full flex">
             <Image
             src='/logo.svg'
             height={150}
             width={150}
             alt="Logo rezenha"
+            className="mr-2"
             />
-            <div className="h-full flex justify-center items-center">
-              <span className=" text-white leading-10 text-5xl font-bold">
-                Re<br></br>
-                ze<br></br>
-                nha
+            <div className="h-full flex justify-center items-center relative">
+              <span className=" text-white leading-11 text-5xl font-medium">
+                RE<br></br>
+                ZE<br></br>
+                NHA
               </span>
             </div>
           </div>
+      </div>
+      <div className="h-[575px]  w-full  bg-white bottom-0 absolute rounded-t-2xl ">
+
       </div>
    </main>
 
