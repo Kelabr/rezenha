@@ -23,7 +23,7 @@ export default function Home() {
             </div>
           </div>
       </div>
-      <div className="h-[575px] flex flex-col  w-full  bg-white bottom-0 absolute rounded-t-2xl px-3 ">
+      <div className="h-[600px] flex flex-col  w-full  bg-white bottom-0 absolute rounded-t-2xl px-3 ">
         <Start/>
       </div>
    </main>
