@@ -1,7 +1,11 @@
+
+
 import Image from "next/image";
-import Start from "./components/Start";
+import Start from "../components/Start";
+
 
 export default function Home() {
+
   return (
    <>
    <main className="h-screen w-full  relative">

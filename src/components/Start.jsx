@@ -1,7 +1,14 @@
+'use client'
+
 import Link from "next/link"
 import Image from "next/image"
+import { GoogleContext } from "@/context/GoogleContext"
+import { useContext } from "react"
 
 export default function Start(){
+
+    const {googleLogin} = useContext(GoogleContext)
+
     return(
         <div className="flex flex-col items-center w-full mt-10">
             <div className=" h-32 w-4/5 flex flex-col items-center text-center">
@@ -13,7 +20,7 @@ export default function Start(){
                 <Link href='#' className="w-2/3"><button className="mb-3 bg-backgroundgray font-medium p-1 w-full rounded-xl">Registrar</button></Link>
             </div>
             <div className="flex mt-3 w-2/6 justify-between">
-                <Link href='#'><Image src='/logoGoogle.svg' width={40} height={40} alt="login Google"/></Link>
+                <Link href='#' onClick={googleLogin}><Image src='/logoGoogle.svg' width={40} height={40} alt="login Google"/></Link>
                 <Link href='#'><Image src='/logo_facebook.svg' width={40} height={40} alt="login Google"/></Link>
             </div>
             <div className="mt-16">
