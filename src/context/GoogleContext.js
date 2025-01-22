@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import { auth } from "@/services/firebase/firebaseConfig";
 import {GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
 import { useRouter } from "next/navigation";
@@ -9,7 +9,11 @@ export const GoogleContext = createContext()
 
 export function GoogleProvider({children}){
 
+    const [name, setName] = useState('') //Armazena o valor do nome do usuário para passar via contexto
+
     const router = useRouter()
+
+
 
     async function googleLogin(){
 
@@ -24,13 +28,28 @@ export function GoogleProvider({children}){
         sessionStorage.setItem('@AuthWithGoogle:name', user.displayName)
         sessionStorage.setItem('@AuthWithGoogle:email', user.email)
 
+        setName(user.displayName)
+
         router.push('/game')
 
     }
 
-    const values = {
-        googleLogin
+
+
+    function exitGoogleLogin(){
+        sessionStorage.clear()
+        router.push('/')
     }
+
+
+
+    const values = { //Objeto que é fornecido para o 'GoogleContex.Provider' na propriedade 'value' para que os valores dentro, dentro do objeto, sejam compartilhados via contexto
+        googleLogin,
+        exitGoogleLogin,
+        name
+    }
+
+
 
     return (
         <GoogleContext.Provider value={values}>
