@@ -1,7 +1,7 @@
 import GameHome from "@/app/components/GameHome"
 import AreaCard from "../components/AreaCard"
 
-export default async function Game(){
+export default function Game(){
 
     return(
         <div className="h-screen">
