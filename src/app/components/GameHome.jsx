@@ -7,7 +7,7 @@ import Image from "next/image"
 export default function GameHome(){
 
     const [name, setName] = useState('')
-    const [photo, setPhoto] = useState('')
+    const [photo, setPhoto] = useState(null)
 
     const {exitGoogleLogin} = useContext(GoogleContext)
 
@@ -39,13 +39,20 @@ export default function GameHome(){
                         alt="icone Menu"
                         />
 
-                        <Image
-                        className="rounded-3xl"
-                        src={photo}
-                        height={30}
-                        width={30}
-                        alt="Imagem de perfil"
-                        />
+                    {
+                        photo ? (
+                            <Image
+                                className="rounded-3xl"
+                                src={photo}
+                                height={30}
+                                width={30}
+                                alt="Imagem de perfil"
+                            />
+                        ) : (<p>Sem imagem</p>)
+                    }
+                        
+
+
                     </div>
                 </div>
 
