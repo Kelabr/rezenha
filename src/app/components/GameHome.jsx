@@ -48,7 +48,7 @@ export default function GameHome(){
                                 width={30}
                                 alt="Imagem de perfil"
                             />
-                        ) : (<p>Sem imagem</p>)
+                        ) : (<p></p>)
                     }
                         
 
