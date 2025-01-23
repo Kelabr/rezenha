@@ -20,7 +20,7 @@ export default function Start(){
                 <Link href='#' className="w-2/3"><button className="mb-3 bg-backgroundgray font-medium p-1 w-full rounded-xl">Registrar</button></Link>
             </div>
             <div className="flex mt-3 w-2/6 justify-between">
-                <Link href='#' onClick={googleLogin}><Image src='/logoGoogle.svg' width={40} height={40} alt="login Google"/></Link>
+                <Link href='#' className="cursor-pointer" onClick={googleLogin}><Image src='/logoGoogle.svg' width={40} height={40} alt="login Google"/></Link>
                 <Link href='#'><Image src='/logo_facebook.svg' width={40} height={40} alt="login Google"/></Link>
             </div>
             <div className="mt-16">
