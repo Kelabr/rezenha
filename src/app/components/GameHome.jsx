@@ -3,11 +3,15 @@
 import { useContext, useEffect, useState } from "react"
 import { GoogleContext } from "@/context/GoogleContext"
 import Image from "next/image"
+import { useRouter } from "next/navigation";
 
 export default function GameHome(){
 
+    const [isAuthenticated,setisAuthenticated] = useState(false)
     const [name, setName] = useState('')
     const [photo, setPhoto] = useState(null)
+
+    const router = useRouter()
 
     const {exitGoogleLogin} = useContext(GoogleContext)
 
@@ -20,12 +24,19 @@ export default function GameHome(){
         setName(nameSession)
         setPhoto(photoSession)
 
+        const token = sessionStorage.getItem('@AuthWithGoogle:token')
 
+        if(!token){
+            router.push('/')
+        }else{
+            setisAuthenticated(true)
+        }
 
     },[])
 
-
-
+    if (!isAuthenticated) {
+        return (<p></p>)
+    }
 
 
     return(
