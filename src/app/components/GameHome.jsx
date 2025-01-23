@@ -1,9 +1,9 @@
 'use client'
 
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import { GoogleContext } from "@/context/GoogleContext"
 import Image from "next/image"
-import { useRouter } from "next/navigation";
+import { useRouter} from "next/navigation";
 
 export default function GameHome(){
 
@@ -12,6 +12,8 @@ export default function GameHome(){
     const [photo, setPhoto] = useState(null)
 
     const router = useRouter()
+
+    const menuRef = useRef(null)
 
     const {exitGoogleLogin} = useContext(GoogleContext)
 
@@ -38,6 +40,10 @@ export default function GameHome(){
         return (<p></p>)
     }
 
+    function openMenu(){
+        menuRef.current.classList.toggle('h-16')
+    }
+
 
     return(
             <div className="bg-colorprimary h-1/4 p-2 w-full ">
@@ -48,6 +54,7 @@ export default function GameHome(){
                         height={30}
                         width={30}
                         alt="icone Menu"
+                        onClick={openMenu}
                         />
 
                     {
@@ -67,9 +74,17 @@ export default function GameHome(){
                     </div>
                 </div>
 
+                <div className="bg-slate-500 mt-2 h-0 transform ease-in-out duration-300 overflow-hidden px-2" ref={menuRef}>
+                    <p className="text-white">Bem vindo: {name} </p>
+                    <p className="text-white" onClick={exitGoogleLogin}>Sair</p>
+                </div>
 
-                <p className="text-white">Bem vindo: {name} </p>
-                <p className="text-white" onClick={exitGoogleLogin}>Sair</p>
+
+                <div className="overflow-hidden h-0">
+                    <p className="text-white">Bem vindo: {name} </p>
+                    <p className="text-white" onClick={exitGoogleLogin}>Sair</p>
+                </div>
+
             </div>
     )
 }
