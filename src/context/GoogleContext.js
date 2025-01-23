@@ -21,12 +21,15 @@ export function GoogleProvider({children}){
 
         const data =  await signInWithPopup(auth, provider)
 
+        console.log(data)
+
         const {user} = data
         const {accessToken} = user
 
         sessionStorage.setItem('@AuthWithGoogle:token', accessToken)
         sessionStorage.setItem('@AuthWithGoogle:name', user.displayName)
         sessionStorage.setItem('@AuthWithGoogle:email', user.email)
+        sessionStorage.setItem('@AuthWithGoogle:photo', user.photoURL)
 
         setName(user.displayName)
 
