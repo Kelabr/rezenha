@@ -15,7 +15,9 @@ export default function TextoCard({data}){
     function plusCard(){
         if(values < 2){
             setValue(values + 1 )
-        }else{
+        }
+
+        if(values === 1){
             refButton.current.classList.toggle('hidden')
             refButtonPlus.current.classList.toggle('hidden')
         }
@@ -31,10 +33,13 @@ export default function TextoCard({data}){
 
 
     return(
-        <div className=" flex flex-col">
-            {data[values].per}
-            <button ref={refButtonPlus}  onClick={plusCard} className="">{button}</button>
-            <Link href='/game'><button ref={refButton} className="hidden">Voltar</button></Link>
+        <div className=" flex flex-col justify-center items-center">
+            <div className="px-2 w-full ">
+                <p className="font-medium text-center">{data[values].per}</p>
+            </div>
+  
+            <button ref={refButtonPlus}  onClick={plusCard} className="bg-slate-300 p-1 w-1/3 mt-2">{button}</button>
+            <Link href='/game' className="w-full"><button ref={refButton} className="hidden w-full p-1 mt-2 bg-slate-300">Voltar</button></Link>
         </div>
         
 
