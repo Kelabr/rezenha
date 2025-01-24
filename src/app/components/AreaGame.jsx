@@ -10,7 +10,7 @@ export default async function AreaGame(){
     return(
         <div className="h-screen flex justify-center items-center p-4">
             <div className="w-full h-1/2 bg-orange-500 rounded-xl flex justify-center items-center">
-                <TextoCard data={Data}/>
+                <TextoCard data={Data} cont={Data.length}/>
             </div>
         </div>
     )

@@ -1,34 +1,35 @@
 'use client'
 
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
 
 
-export default function TextoCard({data}){
+export default function TextoCard({data, cont}){
 
     const [values, setValue] = useState(0)
-    const [button, setButton] = useState('Plus')
     const refButton = useRef()
     const refButtonPlus = useRef()
 
-
-    function plusCard(){
-        if(values < 2){
-            setValue(values + 1 )
-        }
-
-        if(values === 1){
+    useEffect(() => {
+           
+        if(values === 2){
             refButton.current.classList.toggle('hidden')
             refButtonPlus.current.classList.toggle('hidden')
         }
- 
 
-        // if(values >=2){
-        //     setButton('')
-        //     setValue(0)
-        // }
+    })
+
+
+    function plusCard(){
+
+        const inexRamdom = Math.floor(Math.random() * Number(cont))
+
+        if(values < 2){
+
+            setValue(inexRamdom)
+        }
+        
     }
-
 
 
 
@@ -38,7 +39,7 @@ export default function TextoCard({data}){
                 <p className="font-medium text-center">{data[values].per}</p>
             </div>
   
-            <button ref={refButtonPlus}  onClick={plusCard} className="bg-white p-1 w-1/3 mt-4 rounded-lg">{button}</button>
+            <button ref={refButtonPlus}  onClick={plusCard} className="bg-white p-1 w-1/3 mt-4 rounded-lg">Plus</button>
             <Link href='/game' className="w-full"><button ref={refButton} className="hidden w-full p-1 mt-2 bg-white rounded-lg">Voltar</button></Link>
         </div>
         
