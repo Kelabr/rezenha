@@ -5,6 +5,8 @@ export default async function AreaGame(){
 
     const Data = await Consult()
 
+    console.log(Data)
+
 
 
     return(
