@@ -38,8 +38,8 @@ export default function TextoCard({data}){
                 <p className="font-medium text-center">{data[values].per}</p>
             </div>
   
-            <button ref={refButtonPlus}  onClick={plusCard} className="bg-slate-300 p-1 w-1/3 mt-2">{button}</button>
-            <Link href='/game' className="w-full"><button ref={refButton} className="hidden w-full p-1 mt-2 bg-slate-300">Voltar</button></Link>
+            <button ref={refButtonPlus}  onClick={plusCard} className="bg-white p-1 w-1/3 mt-4 rounded-lg">{button}</button>
+            <Link href='/game' className="w-full"><button ref={refButton} className="hidden w-full p-1 mt-2 bg-white rounded-lg">Voltar</button></Link>
         </div>
         
 
