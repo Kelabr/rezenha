@@ -1,10 +1,11 @@
 import "./globals.css";
+import { GoogleProvider } from "@/context/GoogleContext";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
       <body>
-        {children}
+        <GoogleProvider>{children}</GoogleProvider>
       </body>
     </html>
   );
