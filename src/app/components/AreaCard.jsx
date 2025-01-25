@@ -14,8 +14,9 @@ export default function AreaCard(){
 
     useEffect(()=>{
         const token = sessionStorage.getItem('@AuthWithGoogle:token')
+        const tokenFacebook = sessionStorage.getItem('@AuthWithFacebook:token')
 
-        if(!token){
+        if(!token && !tokenFacebook){
             router.push('/')
         }else{
             setisAuthenticated(true)

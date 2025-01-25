@@ -23,12 +23,23 @@ export default function GameHome(){
         const nameSession = sessionStorage.getItem('@AuthWithGoogle:name')
         const photoSession = sessionStorage.getItem('@AuthWithGoogle:photo')
 
-        setName(nameSession)
-        setPhoto(photoSession)
+        const nameSessionFacebook = sessionStorage.getItem('@AuthWithFacebook:name')
+        const photoSessionFacebook = sessionStorage.getItem('@AuthWithFacebook:photo')
+
+        if(nameSession){
+            setName(nameSession)
+            setPhoto(photoSession)
+        }else if(nameSessionFacebook){
+            setName(nameSessionFacebook)
+            setPhoto(photoSessionFacebook)
+        }   
+      
+
 
         const token = sessionStorage.getItem('@AuthWithGoogle:token')
+        const tokenFacebook = sessionStorage.getItem('@AuthWithFacebook:token')
 
-        if(!token){
+        if(!token && !tokenFacebook){
             router.push('/')
         }else{
             setisAuthenticated(true)

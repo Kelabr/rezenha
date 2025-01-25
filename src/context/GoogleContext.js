@@ -2,7 +2,7 @@
 
 import { createContext, useState } from "react";
 import { auth } from "@/services/firebase/firebaseConfig";
-import {GoogleAuthProvider, signInWithPopup} from 'firebase/auth'
+import {GoogleAuthProvider, signInWithPopup, FacebookAuthProvider} from 'firebase/auth'
 import { useRouter } from "next/navigation";
 
 export const GoogleContext = createContext()
@@ -37,6 +37,29 @@ export function GoogleProvider({children}){
 
     }
 
+    async function facebookLogin(){
+
+        const providerFacebbok = new FacebookAuthProvider();        
+
+        const dataFacebook = await signInWithPopup(auth, providerFacebbok)
+
+
+        console.log(dataFacebook)
+
+        const {user} = dataFacebook
+        const {accessToken} = user
+
+        sessionStorage.setItem('@AuthWithFacebook:token', accessToken)
+        sessionStorage.setItem('@AuthWithFacebook:name', user.displayName )
+        sessionStorage.setItem('@AuthWithFacebook:email', user.email)
+        sessionStorage.setItem('@AuthWithFacebook:photo', user.photoURL)
+
+        setName(user.displayName)
+
+        router.push('/game')
+
+    }
+
 
 
     function exitGoogleLogin(){
@@ -49,7 +72,8 @@ export function GoogleProvider({children}){
     const values = { //Objeto que é fornecido para o 'GoogleContex.Provider' na propriedade 'value' para que os valores dentro, dentro do objeto, sejam compartilhados via contexto
         googleLogin,
         exitGoogleLogin,
-        name
+        name,
+        facebookLogin
     }
 
 
@@ -58,6 +82,8 @@ export function GoogleProvider({children}){
         <GoogleContext.Provider value={values}>
             {children}       
         </GoogleContext.Provider>
+
+        
     )
 
  
