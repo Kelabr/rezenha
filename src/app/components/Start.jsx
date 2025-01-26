@@ -15,7 +15,7 @@ export default function Start(){
                 <h1 className="font-bold text-colorprimary mb-2 text-xl">Bem-vindo ao REZENHA</h1>
                 <p className="text-wrap text-[14.5px] text-colortextgray font-medium">Um jogo pra tirar todo mundo do insta e dar umas risadas ou... quem sabe algo mais</p>
             </div>
-            <div className="flex mt-9 w-28 justify-between">
+            <div className="flex mt-9 w-28 justify-center">
                 <Link href='#' className="cursor-pointer" onClick={googleLogin}><Image src='/logoGoogle.svg' width={40} height={40} alt="login Google"/></Link>
             </div>
         </div>
