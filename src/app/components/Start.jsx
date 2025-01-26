@@ -17,7 +17,6 @@ export default function Start(){
             </div>
             <div className="flex mt-9 w-28 justify-between">
                 <Link href='#' className="cursor-pointer" onClick={googleLogin}><Image src='/logoGoogle.svg' width={40} height={40} alt="login Google"/></Link>
-                <Link href='#' onClick={facebookLogin}><Image src='/logo_facebook.svg' width={40} height={40} alt="login Google"/></Link>
             </div>
         </div>
     )
